@@ -1,141 +1,235 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Quicksand:wght@500;700&family=Raleway:wght@500;700&display=swap');
-
-* {
-    border: 1px;
-}
-
+/* General styles */
 body {
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    overflow-x: hidden;
+    transition: all 0.3s ease;
 }
 
-#content h2 {
-    text-align: center;
-    padding-bottom: 30px;
-}
-
-h3 {
-    color: #040D12;
-}
-
-p {
-    line-height: 25px;
-    font-size: 1em;
-}
-
-main {
-    padding: 30px;
-    background-color: #191919;
-    display: flex;
-    gap: 1.5rem;
-}
-
-header {
-    display: inline;
-}
-
-.jumbroton {
-    font-size: 20px;
-    padding: 40px;
-    text-align: center;
-    background-color: #0277BD;
+/* Jumbotron styles */
+.jumbotron {
+    background-color: #1B9154;
     color: white;
-    line-height: 30px;
+    padding: 80px 20px;
+    text-align: center;
+    border-radius: 0 0 20px 20px;
+    transition: all 0.3s ease;
 }
 
-nav {
-    background-color: #545454;
-    padding: 5px;
-    text-align: center;
+.jumbotron h1 {
+    margin: 0;
+    font-size: 2.5em;
+    animation: fadeInDown 1s ease-in-out;
+}
+
+.jumbotron p {
+    font-size: 1.2em;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+/* Navigation styles */
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #333;
     position: sticky;
     top: 0;
+    z-index: 1000;
+    animation: fadeIn 1s ease-in-out;
 }
 
-nav ul {
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
+nav ul li {
+    margin: 0 10px;
 }
 
-nav li {
-    display: inline;
-    list-style-type: none;
-}
-
-nav a {
-    font-size: 20px;
-    font-weight: 400;
-    text-decoration: none;
+nav ul li a {
     color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    transition: background-color 0.3s;
 }
 
-nav a:hover {
-    font-weight: bold;
+nav ul li a:hover {
+    background-color: #1B9154;
+    border-radius: 5px;
 }
 
-#content {
-    flex: 5;
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 1rem 2rem;
-}
-
-aside {
-    flex: 1;
-    height: 30%;
+/* Main content styles */
+main {
+    padding: 20px;
+    animation: fadeIn 1.5s ease-in-out;
 }
 
 .card {
-    box-shadow: 0 2px 8px 2px #00000033;
-    border-radius: 5px;
+    background: white;
     padding: 20px;
-    background-color: #D8D8D8;
-  }
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: slideInUp 1s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
 
 .featured-image {
-    box-shadow: 0 2px 8px 2px #00000033;
-    width: 60%;
-    max-height: px;
-} 
-
-.profile header {
-    text-align: center;
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: transform 0.3s;
 }
 
-.profile img {
-    width: 300px;
-    box-shadow: 0 2px 8px 2px #00000033;
+.card:hover .featured-image {
+    transform: scale(1.05);
 }
 
-table {
-    text-align: left;
-}
-
+/* Footer styles */
 footer {
-    padding: 20px;
+    background-color: #333;
     color: white;
-    background-color: #0277BD;
     text-align: center;
+    padding: 10px 0;
+    animation: fadeIn 1.5s ease-in-out;
 }
 
-@media screen and (max-width: 1000px) {
-    main {
-        flex-flow: column nowrap;
-    }
+/* Back to top button */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #1B9154;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    transition: background-color 0.3s, transform 0.3s;
+    animation: fadeIn 1s ease-in-out;
+}
 
-    main aside {
-        align-self: center;
+.back-to-top:hover {
+    background-color: #145f37;
+}
+
+.back-to-top.visible {
+    display: block;
+    transform: translateY(0);
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }
 
-@media screen and (max-width: 768px) {
-    nav ul {
-        justify-content: center;
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-    main aside {
-        align-self: stretch;
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
     }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f4f4f4;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1B9154;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #145f37;
+}
+
+/* Improved hover effects */
+.card:hover .featured-image,
+.card:hover h2 {
+    transform: scale(1.05);
+    color: #1B9154;
+}
+
+/* Improved button styles */
+button {
+    background-color: #1B9154;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #145f37;
+    transform: translateY(-5px);
+}
+
+/* Animation on scroll */
+@keyframes scrollFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.scroll-fade {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.scroll-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
